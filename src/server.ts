@@ -17,6 +17,7 @@ import UsersRoutes from "./routes/user.route";
 import GroupsRoutes from "./routes/group.route";
 
 import MessageController from "./controllers/message.controller";
+import AuthMiddleware from "./middleware/auth.middleware";
 
 dotenv.config();
 
@@ -51,6 +52,8 @@ const start = () => {
                 origin: "*",
             },
         });
+
+        io.use(AuthMiddleware.socketAuthorizer);
 
         io.on("connection", (socket: Socket) => {
 
