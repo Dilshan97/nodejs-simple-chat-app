@@ -19,7 +19,6 @@ interface IMessage {
 interface IMessageModel extends IMessage, Document { }
 
 interface ISocketPayload {
-    senderId: mongoose.Types.ObjectId;
     content: string;
     receiver: {
         type: string;

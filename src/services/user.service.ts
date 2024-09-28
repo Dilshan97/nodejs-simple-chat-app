@@ -17,8 +17,13 @@ const findByIds = async (userIds: Array<string | mongoose.Types.ObjectId | Objec
   return await User.find({ _id: { $in: userIds } });
 };
 
+const findById = async (_id: string | mongoose.Types.ObjectId) => {
+  return await User.findById(_id);
+};
+
 export default {
   save,
   findByPhoneNumber,
-  findByIds
+  findByIds,
+  findById,
 };
