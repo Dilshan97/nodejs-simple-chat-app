@@ -16,8 +16,9 @@ import connectDB from "./utils/connectDB";
 import UsersRoutes from "./routes/user.route";
 import GroupsRoutes from "./routes/group.route";
 
-import MessageController from "./controllers/message.controller";
+import UserController from "./controllers/user.controller";
 import AuthMiddleware from "./middleware/auth.middleware";
+import MessageController from "./controllers/message.controller";
 
 dotenv.config();
 
@@ -59,6 +60,14 @@ const start = () => {
 
             console.log("New client joined " + socket.id);
 
+            console.log(socket.rooms);
+            
+            //TODO:
+            /**
+             * when socket is connected update online status is true and socket is disconnected set status is false
+             * when you need to get group message, emit the group with group id and leave the group emit leave.
+             * 
+             */
             MessageController.sendMessage(socket);
 
             socket.on("connected", () => console.log("Connected!"));
