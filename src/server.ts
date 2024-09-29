@@ -59,6 +59,8 @@ const start = () => {
         io.on("connection", (socket: Socket) => {
 
             console.log("New client joined " + socket.id);
+
+            console.log(socket.rooms);
             
             //TODO:
             /**
