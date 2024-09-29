@@ -21,6 +21,8 @@ export const constants = {
     },
     SOCKET: {
         EVENTS: {
+            ONLINE: "online",
+            OFFLINE: "offline",
             SEND_MESSAGE: "send_message",
             RECEIVE_MESSAGES: "receive_messages"
         }
